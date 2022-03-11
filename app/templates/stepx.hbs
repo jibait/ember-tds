@@ -1,0 +1,28 @@
+{{page-title "Stepx"}}
+<MultiSelect @elements={{this.dispoItems}}
+             @selected={{this.dispoItems_}}
+             @onChange= {{this.changeDispo}}/>
+
+<button disabled="{{if this.dispoItems_ '' 'disabled'}}"{{action "add" this.dispoItems this.includedItems
+                                                                 this.dispoItems_}} class="btn btn-primary">
+  ▶|
+</button>
+
+<div {{action "add" this.dispoItems this.includedItems this.dispoItems}} class="btn btn-primary">
+  ▶▶|
+</div>
+
+<div {{action "remove" this.includedItems this.dispoItems this.includedItems_}} class="btn btn-primary">
+  |◀
+</div>
+
+<div {{action "remove" this.includedItems this.dispoItems this.includedItems}} class="btn btn-primary">
+  |◀◀
+</div>
+
+<MultiSelect @elements={{this.includedItems}}
+             @selected={{this.includedItems_}}
+             @onChange= {{this.changeIncluded}}/>
+
+<div>{{this.includedItems.length}} produits selectionnés</div>
+{{outlet}}
