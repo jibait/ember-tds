@@ -1,0 +1,9 @@
+{{page-title "New"}}
+<h2>Ajout/modif</h2>
+<Input type="text" @value={{@model.nom}}/>
+<Input type="text" @value={{@model.prenomnom}}/>
+<Input type="email" @value={{@model.email}}/>
+<button type="button" {{action "save" @model}}>
+  Enregistrer
+</button>
+{{outlet}}

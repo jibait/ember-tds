@@ -1,0 +1,23 @@
+{{page-title "TestNew"}}
+<h1>Contacts ({{@model.length}})</h1>
+<ul>
+{{#each @model.contacts as |contact|}}
+  <li>
+    {{contact.nom}}
+    <LinkTo @route="contacts.update" @model={{contact}}>
+      ...
+    </LinkTo>
+    <button type="button" {{action "delete" contact}}>
+      delete
+    </button>
+  </li>
+{{/each}}
+  </ul>
+{{@model.deletedCount}} contact(s) supprimé(s)
+<div class="btn btn-primary">
+<LinkTo @route="contacts.new">
+  Ajouter un contact
+</LinkTo>
+</div>
+<button {{action "cancelAll" @model.deleteds}}>annuler suppressions</button>
+{{outlet}}
