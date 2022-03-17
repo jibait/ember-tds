@@ -1,0 +1,9 @@
+{{page-title "Categories"}}
+<BsNav @type="tabs" as |nav|>
+{{#each @model.category as |category|}}
+    <nav.item>
+      <nav.link-to @route="categories.contacts" @model={{category.id}}>{{category.name}}</nav.link-to>
+    </nav.item>
+  {{/each}}
+</BsNav>
+{{outlet}}

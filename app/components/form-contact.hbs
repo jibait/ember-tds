@@ -1,0 +1,27 @@
+<div class="card-body">
+  <div class="row align-items-start">
+
+    <div class="col">
+      <Input class="form-control" type="text" @value={{@contact.nom}} placeholder="Nom..."/>
+    </div>
+    <div class="col">
+      <Input class="form-control" type="text" @value={{@contact.prenom}} placeholder="Prénom..."/>
+    </div>
+    <div class="col">
+      <Input class="form-control" type="email" @value={{@contact.email}} placeholder="Email..."/>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-success" type="button" {{on "click" (fn this.save @contact)}}>
+        <i class="bi bi-save"></i>
+      </button>
+
+    {{# if @cancelRoute}}
+      <LinkTo class="btn btn-warning" @route={{@cancelRoute}}>
+        <i class="bi bi-back"></i>
+      </LinkTo>
+    {{/if}}
+    </div>
+
+  </div>
+</div>

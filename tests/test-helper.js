@@ -1,5 +1,5 @@
-import Application from 'td5/app';
-import config from 'td5/config/environment';
+import Application from 'ember-tds/app';
+import config from 'ember-tds/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'td5',
+    modulePrefix: 'ember-tds',
     environment,
     rootURL: '/',
     locationType: 'auto',
