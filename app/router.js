@@ -13,5 +13,5 @@ Router.map(function () {
   this.route('autre');
   this.route('board');
   // eslint-disable-next-line ember/routes-segments-snake-case
-  this.route('order', { path: 'order/:idOrder' });
+  this.route('order', { path: 'order/:id_order' });
 });

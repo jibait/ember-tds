@@ -1,2 +1,84 @@
 {{page-title "Order"}}
+<button class="ui brown button">
+  <LinkTo @route="board" style = "color : white">
+  Retour aux commandes à préparer
+  </LinkTo>
+</button>
+<div class="ui black message">
+  {{@model.order.user.name}} ({{@model.order.user.email}})
+</div>
+
+<div class="ui label">
+  {{@model.order.dateCreation}}
+</div>
+
+<table class="ui celled padded table">
+  <thead>
+  <tr>
+    <th>Produit</th>
+    <th class="center aligned">Quantité</th>
+    <th class="right aligned">Prix</th>
+    <th class="right aligned">Montant</th>
+    <th class="center aligned">Preparation</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each @model.order.orderdetails as |produit|}}
+    <tr class={{produit.details "prepared"}}>
+      <td>
+        {{produit.product.name}}
+      </td>
+      <td class="center aligned">
+        {{produit.quantity}}
+      </td>
+      <td class="right aligned">
+        {{format-currency produit.product.price}}
+      </td>
+      <td class="right aligned">
+        {{format-currency produit.amount}}
+      </td>
+      <td class="center aligned">
+        <Input class="ui checkbox" @type="checkbox" @checked={{produit.prepared}} />
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+  <tfoot>
+  <tr>
+    <th>
+    </th>
+    <th>
+    </th>
+    <th>
+    </th>
+    <th class="right aligned">
+      {{format-currency @model.order.amount}}
+    </th>
+    <th class="center aligned">
+      {{format-currency @model.order.toPay}}
+    </th>
+  </tr>
+  </tfoot>
+</table>
+
+<h2>Produits préparés ({{this.countPrepared}})</h2>
+{{#each this.prepared as |details|}}
+  <div class="ui relaxed divided list">
+    <div class="item">
+      <i class="briefcase middle aligned large icon"></i>
+      <div class="content">
+        <a class="header">{{details.product.name}}</a>
+        <div class="description">{{details.product.price}} X {{details.quantity}}</div>
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+
+<div class="ui green button">
+  <LinkTo @route="board" style = "color : white">
+  <i class="check icon"></i>
+  Valider pour {{format-currency @model.order.amount}}
+  </LinkTo>
+</div>
 {{outlet}}
